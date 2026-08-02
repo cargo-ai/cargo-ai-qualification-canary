@@ -1,0 +1,27 @@
+name: Cargo AI Qualification
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qualification-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  qualify:
+    name: Exact package compatibility
+    uses: cargo-ai/cargo-ai/.github/workflows/package-qualification.yml@bd6652b7d4299d2621d2ec18ad15f1d9acf0cca9
+    with:
+      package_repository: cargo-ai/cargo-ai-qualification-canary
+      package_sha: ${{ github.event.pull_request.head.sha || github.sha }}
+      cargo_ai_sha: bd6652b7d4299d2621d2ec18ad15f1d9acf0cca9
+      declaration_path: cargo-ai-qualification.toml
+      platforms_json: '["ubuntu-latest","macos-latest","windows-latest"]'
+      emit_summary: true

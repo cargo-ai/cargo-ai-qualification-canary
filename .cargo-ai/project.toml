@@ -1,0 +1,15 @@
+format_version = 1
+vcs = "git"
+
+[project]
+name = "qualification_canary"
+version = "0.1.0"
+
+[tools]
+allow_global_fallback = false
+
+[build.default]
+agent_definitions = ["qualification_smoke.json"]
+hatched_agents = ["qualification_smoke.json"]
+tools = ["qualification_probe"]
+assets = []

@@ -1,0 +1,16 @@
+format_version = 1
+package_id = "qualification_canary"
+profile = "default"
+platforms = ["ubuntu", "macos", "windows"]
+
+[[entrypoints]]
+name = "qualification_smoke"
+run = true
+hatch = true
+
+[[checks]]
+name = "qualification-probe-tests"
+program = "cargo"
+args = ["test", "--locked", "--manifest-path", "tools/qualification_probe/Cargo.toml"]
+working_directory = "."
+timeout_seconds = 600

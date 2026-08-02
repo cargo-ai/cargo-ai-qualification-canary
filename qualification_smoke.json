@@ -1,0 +1,52 @@
+{
+  "agent_definition_schema_version": "2026-03-03.r1",
+  "inputs": [
+    {
+      "type": "text",
+      "text": "Return status ready."
+    }
+  ],
+  "agent_schema": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "status"
+    ],
+    "additionalProperties": false
+  },
+  "actions": [
+    {
+      "name": "run_qualification_probe",
+      "logic": {
+        "==": [
+          {
+            "var": "status"
+          },
+          "ready"
+        ]
+      },
+      "run": [
+        {
+          "kind": "tool",
+          "name": "qualification_probe",
+          "params": {
+            "enabled": true,
+            "labels": [
+              "package",
+              "runtime"
+            ],
+            "metadata": {
+              "fixture": "qualification_canary",
+              "revision": 1
+            }
+          },
+          "output_variable": "probe_result"
+        }
+      ]
+    }
+  ]
+}
