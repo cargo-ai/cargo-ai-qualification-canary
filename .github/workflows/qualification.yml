@@ -17,11 +17,11 @@ concurrency:
 jobs:
   qualify:
     name: Exact package compatibility
-    uses: cargo-ai/cargo-ai/.github/workflows/package-qualification.yml@cebc0fe9822cf41a1e4aee87d25f2e518f61077b
+    uses: cargo-ai/cargo-ai/.github/workflows/package-qualification.yml@9f8497c32f2ac85ef01e1a9825c363053c8b48c4
     with:
       package_repository: cargo-ai/cargo-ai-qualification-canary
       package_sha: ${{ github.event.pull_request.head.sha || github.sha }}
-      cargo_ai_sha: cebc0fe9822cf41a1e4aee87d25f2e518f61077b
+      cargo_ai_sha: 9f8497c32f2ac85ef01e1a9825c363053c8b48c4
       declaration_path: cargo-ai-qualification.toml
       platforms_json: '["ubuntu-latest","macos-latest","windows-latest"]'
       emit_summary: true
