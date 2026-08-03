@@ -21,7 +21,7 @@ jobs:
     with:
       package_repository: cargo-ai/cargo-ai-qualification-canary
       package_sha: ${{ github.event.pull_request.head.sha || github.sha }}
-      cargo_ai_sha: 8dab63be521cff66e5694ec478cf99dc13fdc345
+      cargo_ai_sha: 73d4ad009424ee31a371cea4ab699567a2a2490d
       declaration_path: cargo-ai-qualification.toml
       platforms_json: '["ubuntu-latest","macos-latest","windows-latest"]'
       emit_summary: true
