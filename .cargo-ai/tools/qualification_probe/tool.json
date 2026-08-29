@@ -1,0 +1,1 @@
+{"artifacts":{"aarch64-apple-darwin":{"path":"bin/aarch64-apple-darwin/qualification_probe"}},"binary":{"default_name":"qualification_probe"},"schema_version":1,"source":{"manifest_path":"tools/qualification_probe/Cargo.toml"},"tool_id":"qualification_probe"}
